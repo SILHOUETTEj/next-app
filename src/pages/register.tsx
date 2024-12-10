@@ -1,4 +1,3 @@
-import { log } from 'console';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -21,7 +20,7 @@ export default function Register() {
 
     if (res.status === 400 || res.status === 401) {
       const data = await res.json();
-      setError(data.message)
+      alert(data.message)
     }
   };
 
