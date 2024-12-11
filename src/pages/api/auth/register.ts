@@ -19,7 +19,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
     // Хеширование пароля
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await prisma.user.create({
+    await prisma.user.create({
       data: { username, password: hashedPassword },
     });
 
