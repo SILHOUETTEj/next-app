@@ -1,3 +1,4 @@
+import { SIGN_IN } from '@/constants';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +8,7 @@ export default function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isError, setError] = useState<string>('')
+  // todo настроить локализацию
   const { t, i18n } = useTranslation('common');
 
   const handleRegister = async () => {
@@ -29,17 +31,17 @@ export default function Register() {
    <div className="min-h-screen flex items-center justify-center bg-gray-100">
     <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
       <h1 className='mb-6 text-2xl font-bold text-gray-800 mb-6 text-center'>
-           {t('login.title')}
+           {SIGN_IN.TITLE}
         </h1>
       <input
           className="mb-6 block w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder={t('login.placeholder.login')}
+          placeholder={SIGN_IN.LOGIN}
           value={username}
           onChange={e => setUsername(e.target.value)}
          />
       <input
           className="mb-6 block w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder={t('login.placeholder.password')}
+          placeholder={SIGN_IN.PASSWORD}
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
@@ -54,7 +56,7 @@ export default function Register() {
         className='w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300'
         onClick={handleRegister}
        >
-        {t('login.button')}
+        {SIGN_IN.BUTTON}
       </button>
     </div>
   </div>
