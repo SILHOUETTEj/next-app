@@ -2,7 +2,8 @@ export const SIGN_IN = {
   TITLE: 'Вход',
   LOGIN: 'Логин',
   PASSWORD: 'Пароль',
-  BUTTON: 'Войти'
+  BUTTON: 'Войти',
+  REGISTER: 'Регистрация'
 }
 
 export const SIGN_UP = {

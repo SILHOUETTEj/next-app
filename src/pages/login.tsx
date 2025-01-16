@@ -11,7 +11,7 @@ export default function Register() {
   // todo настроить локализацию
   const { t, i18n } = useTranslation('common');
 
-  const handleRegister = async () => {
+  const handleLogin = async () => {
     const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -26,6 +26,10 @@ export default function Register() {
       setError(data.message)
     }
   };
+
+  const handleRegister = () => {
+    router.push('/register')
+  }
 
   return (
    <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -54,9 +58,15 @@ export default function Register() {
         }
       <button
         className='w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300'
-        onClick={handleRegister}
+        onClick={handleLogin}
        >
         {SIGN_IN.BUTTON}
+      </button>
+      <button
+        className='mt-4 w-full bg-transparent text-blue-500 border-2 border-blue-500 font-bold py-3 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300'
+        onClick={handleRegister}
+       >
+        {SIGN_IN.REGISTER}
       </button>
     </div>
   </div>
